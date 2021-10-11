@@ -41,6 +41,11 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     const titleAppBar = Text('Conversor de moedas');
+    const circularProgress = Center(
+      child: CircularProgressIndicator(
+        color: Colors.amber,
+      )
+    );
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -54,11 +59,7 @@ class _HomeState extends State<Home> {
           switch(snapshot.connectionState){
             case ConnectionState.none:
             case ConnectionState.waiting:
-              return Center(
-                child: CircularProgressIndicator(
-                  color: Colors.amber,
-                )
-              );
+              return circularProgress;
             default:
               if(snapshot.hasError) {
                 return Center(
